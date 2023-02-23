@@ -11,6 +11,6 @@ can_jd = CANJD(port, id)
 
 while True:
     speed = can_jd.get_speed_stimation()
-    print(speed.T)
+    print(np.linalg.norm(speed.T))
 
 
