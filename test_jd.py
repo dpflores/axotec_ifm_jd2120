@@ -8,7 +8,7 @@ can_jd = CANJD(port, id)
 
 
 while True:
-    r = can_jd.get_accel()
+    r = can_jd.get_rot_grav()
     print(np.round(r.T,2))
     #print(round(x,2), round(y,2), can_jd.slope_resolution)
 

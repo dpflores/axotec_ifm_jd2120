@@ -66,6 +66,7 @@ class CANJD():
         f = self.get_prop_accel_vector()
         g = self.get_rot_grav()
         r = f + g
+
         return r 
 
 
