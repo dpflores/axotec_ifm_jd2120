@@ -8,11 +8,12 @@ network.connect(bustype='socketcan', channel='can1')
 node_id = 10
 
 node = network.add_node(node_id, 'JD2xxx_v1.0.eds')
-for obj in node.object_dictionary.values():
-    print('0x%X: %s' % (obj.index, obj.name))
-    if isinstance(obj, canopen.objectdictionary.Record):
-        for subobj in obj.values():
-            print('  %d: %s' % (subobj.subindex, subobj.name))
+
+# for obj in node.object_dictionary.values():
+#     print('0x%X: %s' % (obj.index, obj.name))
+#     if isinstance(obj, canopen.objectdictionary.Record):
+#         for subobj in obj.values():
+#             print('  %d: %s' % (subobj.subindex, subobj.name))
 
 
 # angulo en x: 0x6010
@@ -22,22 +23,24 @@ for obj in node.object_dictionary.values():
 # aceleracion en y: 0x3404
 # aceleracion en z: 0x3405
 
+g = 9.81
 
-# # Acclerations
-# while True:
-#     x = node.sdo[0x3403].raw
-#     y = node.sdo[0x3404].raw
-#     z = node.sdo[0x3405].raw
-
-#     print(round(x,2), round(y,2), round(z,2))
-
-# Gyro
+resolution = g/1000
+# Acclerations
 while True:
-    x = node.sdo[0x3400].raw
-    y = node.sdo[0x3401].raw
-    z = node.sdo[0x3402].raw
+    x = node.sdo[0x3403].raw * resolution
+    y = node.sdo[0x3404].raw * resolution
+    z = node.sdo[0x3405].raw * resolution
 
     print(round(x,2), round(y,2), round(z,2))
+
+# # Gyro
+# while True:
+#     x = node.sdo[0x3400].raw
+#     y = node.sdo[0x3401].raw
+#     z = node.sdo[0x3402].raw
+
+#     print(round(x,2), round(y,2), round(z,2))
 
 # X Y SLOPE
 while True:
