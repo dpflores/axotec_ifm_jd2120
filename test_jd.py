@@ -12,6 +12,6 @@ can_jd = CANJD(port, id)
 while True:
     speed = can_jd.get_speed_stimation()
     accel = can_jd.get_accel()
-    print(np.round(accel.T,1))
+    print(np.round(speed.T,1))
 
 
