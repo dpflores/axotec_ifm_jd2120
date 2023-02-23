@@ -1,7 +1,7 @@
 import asyncio
 
 from can_jd import *
-from axotec.gps import *
+from axotec.gps import GPS
 import numpy as np
 
 #CAN
