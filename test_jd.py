@@ -7,6 +7,6 @@ can_jd = CANJD(port, id)
 
 while True:
     x,y = can_jd.get_slopes()
-    print(round(x,2), round(y,2))
+    print(round(x,2), round(y,2), can_jd.slope_resolution)
 
 
