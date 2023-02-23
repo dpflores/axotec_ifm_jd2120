@@ -47,17 +47,17 @@ class CANJD():
     def get_rot_grav(self):
         ''' Rotated gravity '''
         thetax_deg, thetay_deg = self.get_slopes()
-        thetax = thetax_deg*np.pi/180
+        thetax = -thetax_deg*np.pi/180
         Rx = np.array([[1, 0, 0],
                     [0, np.cos(thetax), -np.sin(thetax)],
                     [0, np.sin(thetax), np.cos(thetax)]])
 
-        thetay = thetay_deg*np.pi/180
+        thetay = -thetay_deg*np.pi/180
         Ry = np.array([[np.cos(thetay), 0, np.sin(thetay)],
                     [0, 1, 0],
                     [-np.sin(thetay), 0, np.cos(thetay)]])
 
-        g_rotated = Rx@Ry@g_vector
+        g_rotated = Ry@Rx@g_vector
         return g_rotated
 
     def get_accel(self):
