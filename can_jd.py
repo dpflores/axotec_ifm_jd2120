@@ -78,7 +78,7 @@ class CANJD():
         delta = end-start
         self.speed += accel*delta
 
-        self.speed_norm = np.linalg.norm(self.speed[:,0:1])
+        self.speed_norm = np.linalg.norm(self.speed[0:1])
 
         return self.speed_norm
 
