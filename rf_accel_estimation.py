@@ -1,2 +1,0 @@
-# Fixed frame acceleration stimation 
-
