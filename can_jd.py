@@ -74,7 +74,7 @@ class CANJD():
         start = time.time()
         accel = self.get_accel()
         end = time.time()
-        delta = start-end
+        delta = end-start
         self.speed += accel*delta
 
         return self.speed
