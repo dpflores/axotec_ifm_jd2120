@@ -57,7 +57,7 @@ class CANJD():
                     [0, 1, 0],
                     [-np.sin(thetay), 0, np.cos(thetay)]])
 
-        g_rotated = Ry@Rx@g_vector
+        g_rotated = Rx@Ry@g_vector
         return g_rotated
 
     def get_accel(self):
