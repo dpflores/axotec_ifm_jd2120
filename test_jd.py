@@ -11,6 +11,6 @@ can_jd = CANJD(port, id)
 
 while True:
     speed = can_jd.get_speed_stimation()
-    print(f"velocidad: {speed} m/s")
+    print(f"velocidad: {speed*3.8} km/h")
 
 
