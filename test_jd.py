@@ -1,12 +1,14 @@
 from can_jd import *
+from axotec.gps import *
 import numpy as np
 
-import time
-
+#CAN
 port = 'can1'
 id = 10
+can_jd = CANJD(port, id)    
 
-can_jd = CANJD(port, id)
+#GPS
+gps = GPS()
 
 
 while True:
