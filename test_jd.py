@@ -9,7 +9,7 @@ can_jd = CANJD(port, id)
 g_vector = np.array([0, 0, -9.81]).T
 
 def rotation(thetax_deg, thetay_deg, g_vector):
-    thetax = thetax_deg*np.pi/180
+    thetax = -thetax_deg*np.pi/180
     Rx = np.array([[1, 0, 0],
                   [0, np.cos(thetax), -np.sin(thetax)],
                   [0, np.sin(thetax), np.cos(thetax)]])
@@ -19,7 +19,7 @@ def rotation(thetax_deg, thetay_deg, g_vector):
                   [0, 1, 0],
                   [-np.sin(thetay), 0, np.cos(thetay)]])
 
-    g_rotated = Rx@Ry@g_vector
+    g_rotated = Ry@Rx@g_vector
     return g_rotated
 
 while True:
