@@ -15,14 +15,29 @@ for obj in node.object_dictionary.values():
             print('  %d: %s' % (subobj.subindex, subobj.name))
 
 
+# angulo en x: 0x6010
+# angulo en y: 0x6020
+
+# aceleracion en x: 0x3403
+# aceleracion en y: 0x3404
+# aceleracion en z: 0x3405
 
 
-# X Y SLOPE
+# Acclerations
 while True:
-    x_slope = node.sdo[0x6010].raw
+    x = node.sdo[0x3403].raw
+    y = node.sdo[0x3404].raw
+    z = node.sdo[0x3405].raw
 
-    y_slope = node.sdo[0x6020].raw
+    print(round(x,2), round(y,2), round(z,2))
 
-    print(round(x_slope,2), round(y_slope,2))
+
+# # X Y SLOPE
+# while True:
+#     x_slope = node.sdo[0x6010].raw
+
+#     y_slope = node.sdo[0x6020].raw
+
+#     print(round(x_slope,2), round(y_slope,2))
 
 
