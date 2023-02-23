@@ -10,14 +10,14 @@ g_vector = np.array([0, 0, -9.81]).T
 
 def rotation(thetax_deg, thetay_deg, g_vector):
     thetax = thetax_deg*np.pi/180
-    Rx = np.array[[1, 0, 0],
+    Rx = np.array([[1, 0, 0],
                   [0, np.cos(thetax), -np.sin(thetax)],
-                  [0, np.sin(thetax), np.cos(thetax)]]
+                  [0, np.sin(thetax), np.cos(thetax)]])
 
     thetay = thetay_deg*np.pi/180
-    Ry = np.array[[np.cos(thetay), 0, np.sin(thetay)],
+    Ry = np.array([[np.cos(thetay), 0, np.sin(thetay)],
                   [0, 1, 0],
-                  [-np.sin(thetay), 0, np.cos(thetay)]]
+                  [-np.sin(thetay), 0, np.cos(thetay)]])
 
     g_rotated = Ry@Rx@g_vector
     return g_rotated
