@@ -61,14 +61,17 @@ class CANJD():
         return g_rotated
 
     def get_accel(self):
-        ''' Retorna la aceleracion respecto al eje fijo, descontando el efecto de la gravedad
+        ''' Retorna el modulo de la aceleracion respecto al eje fijo, descontando el efecto de la gravedad
         en la aceleracion propia (proper acceleration)'''
         f = self.get_prop_accel_vector()
         g = self.get_rot_grav()
         r = f + g
+        r_norm = np.linalg.norm(r)
+        return r
 
-        return r 
-
+    def get_speed_stimation(self):
+        
+        pass
 
 
 
