@@ -31,6 +31,13 @@ for obj in node.object_dictionary.values():
 
 #     print(round(x,2), round(y,2), round(z,2))
 
+# Gyro
+while True:
+    x = node.sdo[0x3400].raw
+    y = node.sdo[0x3401].raw
+    z = node.sdo[0x3402].raw
+
+    print(round(x,2), round(y,2), round(z,2))
 
 # X Y SLOPE
 while True:
