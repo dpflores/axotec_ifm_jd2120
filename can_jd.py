@@ -9,13 +9,15 @@ gyro_resolution = 0.1       # degrees/s
 
 g_vector = np.array([0,0,-g]).T
 
+slope_resolutions = {"10":0.01,"100":0.1,"1000":1}
+
 class CANJD():
     def __init__(self, port='can1', node_id=10):
         network = canopen.Network()
         network.connect(bustype='socketcan', channel=port)
         self.node = network.add_node(node_id, 'JD2xxx_v1.0.eds')
-
-        self.slope_resolution = self.node.sdo[0x6000].raw 
+        self.slope_resolution = slope_resolutions[str(self.node.sdo[0x6000].raw)]
+        
 
     def get_accel(self):
         x = self.node.sdo[0x3403].raw * accel_resolution
