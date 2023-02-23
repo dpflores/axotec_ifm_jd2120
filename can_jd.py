@@ -70,16 +70,16 @@ class CANJD():
         #r_norm = np.linalg.norm(r)
         return r
 
-    def get_speed_stimation(self, iterations):
+    def get_speed_stimation(self, iterations=4):
         start = time.time()
         accel_cumulative = 0
-        for i in range(1,5):
+        for i in range(1,iterations+1):
             accel_raw = self.get_accel()
             accel_cumulative += accel_raw
 
-        accel = accel_cumulative/4   
+        accel = accel_cumulative/iterations  
         accel = np.round(accel,1)    
-        
+
         end = time.time()
 
         delta = end-start
