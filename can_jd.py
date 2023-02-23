@@ -67,8 +67,8 @@ class CANJD():
         f = self.get_prop_accel_vector()
         g = self.get_rot_grav()
         r = f + g
-        r_norm = np.linalg.norm(r)
-        return r_norm
+        #r_norm = np.linalg.norm(r)
+        return r
 
     def get_speed_stimation(self):
         start = time.time()
