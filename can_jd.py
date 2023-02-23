@@ -73,6 +73,7 @@ class CANJD():
     def get_speed_stimation(self):
         start = time.time()
         accel = self.get_accel()
+        accel = np.round(accel,1)
         end = time.time()
         delta = end-start
         self.speed += accel*delta
