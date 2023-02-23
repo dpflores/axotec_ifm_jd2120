@@ -23,21 +23,21 @@ for obj in node.object_dictionary.values():
 # aceleracion en z: 0x3405
 
 
-# Acclerations
-while True:
-    x = node.sdo[0x3403].raw
-    y = node.sdo[0x3404].raw
-    z = node.sdo[0x3405].raw
-
-    print(round(x,2), round(y,2), round(z,2))
-
-
-# # X Y SLOPE
+# # Acclerations
 # while True:
-#     x_slope = node.sdo[0x6010].raw
+#     x = node.sdo[0x3403].raw
+#     y = node.sdo[0x3404].raw
+#     z = node.sdo[0x3405].raw
 
-#     y_slope = node.sdo[0x6020].raw
+#     print(round(x,2), round(y,2), round(z,2))
 
-#     print(round(x_slope,2), round(y_slope,2))
+
+# X Y SLOPE
+while True:
+    x_slope = node.sdo[0x6010].raw
+
+    y_slope = node.sdo[0x6020].raw
+
+    print(round(x_slope,2), round(y_slope,2))
 
 
