@@ -35,7 +35,7 @@ def test():
     x = node.sdo[0x3403].raw * resolution
     y = node.sdo[0x3404].raw * resolution
     z = node.sdo[0x3405].raw * resolution
-    return x
+    print(x)
 # Acclerations
 while True:
     
