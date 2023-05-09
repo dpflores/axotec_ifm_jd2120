@@ -38,7 +38,7 @@ def test():
     y = node.sdo[0x3404].raw * resolution
     z = node.sdo[0x3405].raw * resolution
     time.sleep(0.1)
-    print(round(x,2), round(y,2), round(z,2))
+    print([round(x,2), round(y,2), round(z,2)])
 # Acclerations
 while True:
     
