@@ -39,7 +39,7 @@ def test():
     z = node.sdo[0x3405].raw * resolution
     time.sleep(0.1)
 
-    print(f'"x":{round(x,2)}, "y":{round(y,2)}, "z":{round(z,2)}')
+    print(f'{{"x":{round(x,2)}, "y":{round(y,2)}, "z":{round(z,2)}}}')
 # Acclerations
 while True:
     
