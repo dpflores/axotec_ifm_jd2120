@@ -30,13 +30,17 @@ node = network.add_node(node_id, EDS_FILE)
 g = 9.81
 
 resolution = g/1000
-# Acclerations
-while True:
+
+def test():
     x = node.sdo[0x3403].raw * resolution
     y = node.sdo[0x3404].raw * resolution
     z = node.sdo[0x3405].raw * resolution
-
     return x
+# Acclerations
+while True:
+    
+
+    test()
     # print(round(x,2), round(y,2), round(z,2))
 
 # # Gyro
