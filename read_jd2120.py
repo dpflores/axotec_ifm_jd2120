@@ -11,7 +11,7 @@ network = canopen.Network()
 network.connect(bustype='socketcan', channel='can1')
 node_id = 10
 
-node = network.add_node(node_id, 'JD2xxx_v1.0.eds')
+node = network.add_node(node_id, EDS_FILE)
 
 # for obj in node.object_dictionary.values():
 #     print('0x%X: %s' % (obj.index, obj.name))
