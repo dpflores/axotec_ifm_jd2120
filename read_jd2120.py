@@ -5,7 +5,7 @@ import math
 import os
 
 EDS_FILE = os.path.dirname(os.path.realpath(__file__)) +\
-                           'JD2xxx_v1.0.eds'
+                           '/JD2xxx_v1.0.eds'
 # Cargar archivo de configuración de dispositivo CANopen
 network = canopen.Network()
 network.connect(bustype='socketcan', channel='can1')
