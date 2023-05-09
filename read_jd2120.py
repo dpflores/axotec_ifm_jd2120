@@ -4,6 +4,8 @@ import math
 
 import os
 
+import time
+
 EDS_FILE = os.path.dirname(os.path.realpath(__file__)) +\
                            '/JD2xxx_v1.0.eds'
 # Cargar archivo de configuración de dispositivo CANopen
@@ -35,6 +37,7 @@ def test():
     x = node.sdo[0x3403].raw * resolution
     y = node.sdo[0x3404].raw * resolution
     z = node.sdo[0x3405].raw * resolution
+    time.sleep(0.1)
     print(x)
 # Acclerations
 while True:
