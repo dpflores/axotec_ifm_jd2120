@@ -1,6 +1,10 @@
 import canopen
 import numpy as np
 import time
+import os
+
+EDS_FILE = os.path.dirname(os.path.realpath(__file__)) +\
+    '/JD2xxx_v1.0.eds'
 # Cargar archivo de configuración de dispositivo CANopen
 g = 9.81
 
@@ -16,7 +20,7 @@ class CANJD():
     def __init__(self, port='can1', node_id=10, speed0=0):
         network = canopen.Network()
         network.connect(bustype='socketcan', channel=port)
-        self.node = network.add_node(node_id, 'JD2xxx_v1.0.eds')
+        self.node = network.add_node(node_id, EDS_FILE)
         self.slope_resolution = slope_resolutions[str(
             self.node.sdo[0x6000].raw)]
         self.speed = speed0
