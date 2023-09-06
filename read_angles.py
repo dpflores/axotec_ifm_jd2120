@@ -5,6 +5,9 @@ port = 'can1'
 id = 10
 can_jd = CANJD(port, id)
 
+# calibrating
+can_jd.calibrate_slopes()
+
 # Acclerations
 while True:
 

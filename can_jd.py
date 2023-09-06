@@ -24,6 +24,8 @@ class CANJD():
         self.slope_resolution = slope_resolutions[str(
             self.node.sdo[0x6000].raw)]
         self.speed = speed0
+        self.slope_x = 0
+        self.slope_y = 0
 
     def get_prop_accel(self):
         x = self.node.sdo[0x3403].raw * accel_resolution
@@ -46,9 +48,26 @@ class CANJD():
         return x, y, z
 
     def get_slopes(self):
-        x = self.node.sdo[0x6010].raw * self.slope_resolution
-        y = self.node.sdo[0x6020].raw * self.slope_resolution
+        x = self.node.sdo[0x6010].raw * self.slope_resolution - self.slope_x
+        y = self.node.sdo[0x6020].raw * self.slope_resolution - self.slope_y
         return x, y
+
+    # Funcion para calibrar el slope en x e y del JD y poder corregir la funcion get_slopes
+    def calibrate_slopes(self):
+        # obtener una media de 20 datos para hacer el promedio para calibrar
+        print("calibrating...")
+        x = 0
+        y = 0
+        for i in range(20):
+            x1, y1 = self.get_slopes()
+            x += x1
+            y += y1
+            time.sleep(0.01)
+        x = x/20
+        y = y/20
+
+        self.slope_x = x
+        self.slope_y = y
 
     def get_rot_grav(self):
         ''' Rotated gravity '''
