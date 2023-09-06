@@ -7,7 +7,7 @@ import os
 import time
 
 EDS_FILE = os.path.dirname(os.path.realpath(__file__)) +\
-                           '/JD2xxx_v1.0.eds'
+    '/JD2xxx_v1.0.eds'
 # Cargar archivo de configuración de dispositivo CANopen
 network = canopen.Network()
 network.connect(bustype='socketcan', channel='can1')
@@ -33,6 +33,7 @@ g = 9.81
 
 resolution = g/1000
 
+
 def test():
     x = node.sdo[0x3403].raw * resolution
     y = node.sdo[0x3404].raw * resolution
@@ -40,9 +41,10 @@ def test():
     time.sleep(0.1)
 
     print(f'{{"x":{round(x,2)}, "y":{round(y,2)}, "z":{round(z,2)}}}')
+
+
 # Acclerations
 while True:
-    
 
     test()
     # print(round(x,2), round(y,2), round(z,2))
@@ -61,6 +63,4 @@ while True:
 
     y_slope = node.sdo[0x6020].raw
 
-    print(round(x_slope,2), round(y_slope,2))
-
-
+    print(round(x_slope, 2), round(y_slope, 2))

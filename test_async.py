@@ -1,16 +1,16 @@
 import asyncio
 
 from can_jd import *
-from axotec.gps import GPS
 import numpy as np
 
-#CAN
+# CAN
 port = 'can1'
 id = 10
-can_jd = CANJD(port, id)    
+can_jd = CANJD(port, id)
 
-#GPS
+# GPS
 gps = GPS()
+
 
 async def speed_imu():
     # Inicializar la conexión al bus CAN
@@ -24,6 +24,7 @@ async def speed_imu():
         # Imprimir datos procesados
         print("Datos IMU:", speed_imu)
 
+
 async def speed_gps():
     # Inicializar la conexión serial
     # ...
@@ -36,6 +37,7 @@ async def speed_gps():
         # Imprimir datos procesados
         print("Datos GPS:", gps_data)
 
+
 async def main():
     # Crear tareas asincrónicas para leer IMU y GPS
     imu_task = asyncio.create_task(speed_imu())
@@ -47,4 +49,3 @@ async def main():
 if __name__ == '__main__':
     # Iniciar bucle de eventos de asyncio
     asyncio.run(main())
-
