@@ -3,6 +3,7 @@ import numpy as np
 import time
 import os
 
+CALIBRATING_TIME = 5
 EDS_FILE = os.path.dirname(os.path.realpath(__file__)) +\
     '/JD2xxx_v1.0.eds'
 # Cargar archivo de configuración de dispositivo CANopen
@@ -58,7 +59,7 @@ class CANJD():
         print("calibrating...")
         x = 0
         y = 0
-        for i in range(20):
+        for i in range(10*CALIBRATING_TIME):
             x1, y1 = self.get_slopes()
             x += x1
             y += y1
