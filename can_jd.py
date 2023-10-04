@@ -24,6 +24,7 @@ class CANJD():
         self.node = network.add_node(node_id, EDS_FILE)
         self.slope_resolution = slope_resolutions[str(
             self.node.sdo[0x6000].raw)]
+        
         self.speed = speed0
         self.slope_x = 0
         self.slope_y = 0
@@ -49,8 +50,8 @@ class CANJD():
         return x, y, z
 
     def get_slopes(self):
-        x = self.node.sdo[0x6010].raw * self.slope_resolution - self.slope_x
-        y = self.node.sdo[0x6020].raw * self.slope_resolution - self.slope_y
+        x = self.node.sdo[0x6010].raw * self.slope_resolution - self.node.sdo[0x6012].raw * self.slope_resolution
+        y = self.node.sdo[0x6020].raw * self.slope_resolution - self.node.sdo[0x6022].raw * self.slope_resolution
         return x, y
     
     def calibrate_xy(self, samples = 10):
