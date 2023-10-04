@@ -10,6 +10,7 @@ SAMPLES = 100
 
 print("Calibrating...")
 
-can_jd.calibrate_xy(SAMPLES)
+avgx, avgy = can_jd.calibrate_xy(SAMPLES)
+print(avgx, avgy)
 
 print("Calibration done!")
