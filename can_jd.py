@@ -72,6 +72,7 @@ class CANJD():
         return avgx* self.slope_resolution, avgy* self.slope_resolution
     
     def save_parameters(self):
+        print(self.node.sdo[0x1010][0x3].raw)
         self.node.sdo[0x1010][0x3].raw = 0x1
 
     def restore_parameters(self):
