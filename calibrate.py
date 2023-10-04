@@ -6,7 +6,7 @@ id = 10
 can_jd = CANJD(port, id)
 
 
-SAMPLES = 10 
+SAMPLES = 100 
 
 print("Calibrating...")
 
