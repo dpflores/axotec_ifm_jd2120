@@ -66,7 +66,7 @@ class CANJD():
         
         # Setting the preseting
         self.node.sdo[0x6012].raw = avgx
-        self.node.sdo[0x6013].raw = avgy
+        self.node.sdo[0x6022].raw = avgy
 
         return avgx* self.slope_resolution, avgy* self.slope_resolution
 
