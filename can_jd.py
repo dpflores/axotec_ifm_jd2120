@@ -58,7 +58,7 @@ class CANJD():
         sumy = 0
         for i in range(samples):
             sumx += self.node.sdo[0x6010].raw 
-            sumy += self.node.sdo[0x6010].raw 
+            sumy += self.node.sdo[0x6020].raw 
 
         avgx = int(sumx/samples)
         avgy = int(sumy/samples)
