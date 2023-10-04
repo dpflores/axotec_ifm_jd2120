@@ -52,6 +52,21 @@ class CANJD():
         x = self.node.sdo[0x6010].raw * self.slope_resolution - self.slope_x
         y = self.node.sdo[0x6020].raw * self.slope_resolution - self.slope_y
         return x, y
+    
+    def calibrate_xy(self, samples = 10):
+        sumx = 0
+        sumy = 0
+        for i in range(samples):
+            sumx += self.node.sdo[0x6010].raw 
+            sumy += self.node.sdo[0x6010].raw 
+
+        avgx = int(sumx/samples)
+        avgy = int(sumy/samples)
+
+        
+        # Setting the preseting
+        self.node.sdo[0x6012].raw = avgx
+        self.node.sdo[0x6022].raw = avgy
 
     # Funcion para calibrar el slope en x e y del JD y poder corregir la funcion get_slopes
     def calibrate_slopes(self):
