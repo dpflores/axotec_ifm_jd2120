@@ -77,7 +77,6 @@ class CANJD():
     def restore_parameters(self):
         self.node.sdo[0x1011].raw = 0x1
         
-
     # Funcion para calibrar el slope en x e y del JD y poder corregir la funcion get_slopes
     def calibrate_slopes(self):
         # obtener una media de 20 datos para hacer el promedio para calibrar
