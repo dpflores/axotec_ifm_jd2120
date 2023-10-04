@@ -13,4 +13,7 @@ print("Calibrating...")
 avgx, avgy = can_jd.calibrate_xy(SAMPLES)
 print(avgx, avgy)
 
+# save parameters
+can_jd.save_parameters()
+
 print("Calibration done!")

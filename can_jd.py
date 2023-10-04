@@ -70,6 +70,13 @@ class CANJD():
         self.node.sdo[0x6022].raw = avgy
 
         return avgx* self.slope_resolution, avgy* self.slope_resolution
+    
+    def save_parameters(self):
+        self.node.sdo[0x1010].raw = 0x1
+
+    def restore_parameters(self):
+        self.node.sdo[0x1011].raw = 0x1
+        
 
     # Funcion para calibrar el slope en x e y del JD y poder corregir la funcion get_slopes
     def calibrate_slopes(self):
