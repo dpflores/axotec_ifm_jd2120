@@ -7,3 +7,5 @@ can_jd = CANJD(port, id)
 
 #restore parameters
 can_jd.restore_parameters()
+
+print("Parameters restored!, you can reboot now")
