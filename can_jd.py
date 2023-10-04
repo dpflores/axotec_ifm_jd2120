@@ -75,14 +75,14 @@ class CANJD():
         # print(self.node.sdo[0x1010][0x3].raw)
 
         # string 'save' converted to hexadecimal following ascii
-        self.node.sdo[0x1010][0x3].raw = 0x73617665
+        self.node.sdo[0x1010][0x3].raw = 0x65766173
     
 
     def restore_parameters(self):
         # self.node.sdo[0x1011][0x3].raw = 0x1
 
         # string 'load' converted to hexadecimal following ascii
-        self.node.sdo[0x1011][0x3].raw = 0x6c6f6164 
+        self.node.sdo[0x1011][0x3].raw = 0x64616f6c
         
         
     # Funcion para calibrar el slope en x e y del JD y poder corregir la funcion get_slopes
